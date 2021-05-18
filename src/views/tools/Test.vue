@@ -10,5 +10,5 @@ export default defineComponent({
 </script>
 
 <template>
-  <div>About</div>
+  <div></div>
 </template>

@@ -1,24 +1,11 @@
-# front-end-laboratory
+## Run and build
 
-## Project setup
-```
-npm install
-```
+vscode - Windi CSS: Run & Open Analysis
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Links
 
-### Compiles and minifies for production
-```
-npm run build
-```
+- https://github.com/MeForma/vue-toaster
 
-### Lints and fixes files
-```
-npm run lint
-```
+## Todo
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- font-awesome
