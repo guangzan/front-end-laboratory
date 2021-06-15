@@ -1,8 +1,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import useClipboard from 'vue-clipboard3'
-import { ImageOutline } from "@vicons/ionicons5";
-import { NIcon } from "naive-ui";
 import {
   PhotographIcon,
   UploadIcon,
@@ -112,10 +110,7 @@ function downloadImage() {
   <div class="max-w-3/4 mx-auto mt-8">
     <h1 class="flex items-center justify-center mb-8 text-center text-3xl text-gray-700">
       BASE64 ⇄
-      <n-icon size="20" class="mr-2">
-        <image-outline></image-outline>
-      </n-icon>
-      <!-- <PhotographIcon class="h-9 w-9 ml-2 text-blue-500" /> -->
+      <PhotographIcon class="h-9 w-9 ml-2 text-blue-500" />
     </h1>
 
     <div class="flex justify-between gap-8 <sm:(flex-col)">
