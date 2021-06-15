@@ -8,4 +8,5 @@ module.exports = {
   },
   pluginOptions: {},
   outputDir: 'docs',
+  productionSourceMap: false,
 }
