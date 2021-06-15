@@ -7,4 +7,5 @@ module.exports = {
     open: true,
   },
   pluginOptions: {},
+  outputDir: 'docs',
 }
