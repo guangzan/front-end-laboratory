@@ -1,8 +1,10 @@
-<script lang="ts">
+<script lang="ts" setup>
 import CleanCSS from 'clean-css'
 import { Output } from 'clean-css'
 import { defineComponent, ref } from 'vue'
 import useClipboard from 'vue-clipboard3'
+import { useMessage, NIcon } from 'naive-ui'
+import { CopyOutline } from '@vicons/ionicons5'
 
 type LanguagesType = 'CSS' | 'JavaScript'
 type ActionsType = 'compress' | 'format'
@@ -22,80 +24,62 @@ interface ActionsMap {
   JavaScript: JavaScriptActions
 }
 
-export default defineComponent({
-  name: 'Formater',
-  setup() {
-    const { toClipboard } = useClipboard()
-    const actionsMap: ActionsMap = {
-      CSS: {
-        compress(strings: string): Output {
-          return new CleanCSS().minify(strings)
-        },
-        format(strings: string): Output {
-          return new CleanCSS({
-            format: 'beautify',
-          }).minify(strings)
-        },
-      },
-      JavaScript: {
-        compress(strings: string) {
-          return strings
-        },
-        format(strings: string) {
-          return strings
-        },
-      },
-    }
-    const action = ref<ActionsType>('compress')
-    const language = ref<LanguagesType>('CSS')
-    const prehandleStrings = ref<string>('')
-    const handledStrings = ref<string>('')
+const { toClipboard } = useClipboard()
+const message = useMessage()
 
-    function toggleLanguage(lang: LanguagesType): void {
-      language.value = lang
-    }
-
-    function toggleAction(act: ActionsType): void {
-      action.value = act
-    }
-
-    function handleStart(): void {
-      const strings = prehandleStrings.value
-      const languageMap = actionsMap[language.value]
-      const { styles } = languageMap[action.value](strings) as Output
-      handledStrings.value = styles
-      // $q.notify({
-      //   message: "转换成功",
-      //   color: "positive",
-      //   icon: "tag_faces",
-      //   position: "bottom-right",
-      // });
-    }
-
-    async function copyCode() {
-      try {
-        await toClipboard(handledStrings.value)
-        console.log('Copied to clipboard')
-      } catch (e) {
-        console.error(e)
-      }
-    }
-
-    function ClearContent() {
-      prehandleStrings.value = ''
-    }
-
-    return {
-      toggleAction,
-      toggleLanguage,
-      prehandleStrings,
-      handledStrings,
-      handleStart,
-      copyCode,
-      ClearContent,
-    }
+const actionsMap: ActionsMap = {
+  CSS: {
+    compress(strings: string): Output {
+      return new CleanCSS().minify(strings)
+    },
+    format(strings: string): Output {
+      return new CleanCSS({
+        format: 'beautify',
+      }).minify(strings)
+    },
   },
-})
+  JavaScript: {
+    compress(strings: string) {
+      return strings
+    },
+    format(strings: string) {
+      return strings
+    },
+  },
+}
+const action = ref<ActionsType>('compress')
+const language = ref<LanguagesType>('CSS')
+const prehandleStrings = ref('')
+const handledStrings = ref('')
+
+function toggleLanguage(lang: LanguagesType): void {
+  language.value = lang
+}
+
+function toggleAction(act: ActionsType): void {
+  action.value = act
+}
+
+function handleStart(): void {
+  const strings = prehandleStrings.value
+  const languageMap = actionsMap[language.value]
+  const { styles } = languageMap[action.value](strings) as Output
+  handledStrings.value = styles
+  message.success('转换成功')
+}
+
+async function copyCode() {
+  try {
+    await toClipboard(handledStrings.value)
+    message.success('Copied to clipboard')
+  } catch (e) {
+    message.error(e)
+  }
+}
+
+function ClearContent() {
+  prehandleStrings.value = ''
+}
 </script>
 
 <template>
@@ -107,8 +91,7 @@ export default defineComponent({
           class="mr-2 cursor-not-allowed"
           @click="toggleLanguage('JavaScript')"
           disabled
-          >JavaScript</v-button
-        >
+        >JavaScript</v-button>
       </div>
 
       <div class="flex mx-4 <sm:(w-full mb-2 mx-0)">
@@ -117,25 +100,14 @@ export default defineComponent({
       </div>
 
       <div class="flex <sm:(w-full mb-2)">
-        <v-button class="mr-2" @click="handleStart" type="success">
-          开始处理
-        </v-button>
+        <v-button class="mr-2" @click="handleStart" type="success">开始处理</v-button>
       </div>
     </div>
 
     <div class="flex flex-row justify-between gap-2 mt-4 <sm:(flex-col)">
       <div class="relative flex-1 min-h-96">
         <textarea
-          class="
-            block
-            p-2
-            border
-            w-full
-            h-full
-            border-gray-400
-            rounded-md
-            shadow-md
-          "
+          class="block p-2 border w-full h-full border-gray-400 rounded-md shadow-md"
           v-model="prehandleStrings"
         ></textarea>
         <v-button
@@ -150,20 +122,11 @@ export default defineComponent({
 
       <div class="flex-1 relative">
         <div
-          class="
-            bg-gray-100
-            p-2
-            rounded-md
-            border border-gray-200
-            shadow-md
-            whitespace-pre-wrap
-            font-mono
-            min-h-96
-          "
+          class="bg-gray-100 p-2 rounded-md border border-gray-200 shadow-md whitespace-pre-wrap font-mono min-h-96"
           v-html="handledStrings"
         ></div>
         <v-button
-          v-show="handledStrings !== ''"
+          v-show="handledStrings != ''"
           class="absolute right-2 top-2"
           size="sm"
           type="warn"

@@ -80,14 +80,7 @@ export default defineComponent({
 <template>
   <button
     :class="[sizeStyle, typeStyle]"
-    class="
-      shadow
-      rounded
-      hover:transition
-      focus:ring
-      focus:outline-none
-      dark:bg-dark-800
-    "
+    class="shadow rounded hover:transition focus:ring focus:outline-none dark:bg-dark-800"
   >
     <slot></slot>
   </button>

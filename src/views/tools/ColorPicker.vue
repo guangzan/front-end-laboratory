@@ -1,6 +1,6 @@
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script lang="ts" setup>
 import Palette from '../../components/Palette.vue'
+import { NBackTop } from 'naive-ui'
 
 interface PaletteData {
   title: string
@@ -334,22 +334,10 @@ const paletteDataList: PaletteData[] = [
     ],
   },
 ]
-
-export default defineComponent({
-  name: 'ColorPicker',
-  components: { Palette },
-  setup() {
-    return {
-      paletteDataList,
-    }
-  },
-})
 </script>
 
 <template>
-  <div
-    class="flex flex-col items-center my-0 mx-auto pt-8 min-h-full bg-gray-200"
-  >
+  <div class="flex flex-col items-center my-0 mx-auto pt-8 min-h-full bg-gray-200">
     <div class="m-4 text-gray-400 text-4xl">中性色版</div>
     <Palette
       v-for="item in paletteDataList"
@@ -357,5 +345,6 @@ export default defineComponent({
       :title="item.title"
       :color="item.color"
     ></Palette>
+    <NBackTop :right="100"></NBackTop>
   </div>
 </template>

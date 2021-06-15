@@ -1,14 +1,9 @@
-<script lang="ts">
-import { defineComponent, PropType } from 'vue'
+<script lang="ts" setup>
+import { PropType, defineProps } from 'vue'
 
-export default defineComponent({
-  props: {
-    title: {
-      type: String as PropType<string>,
-    },
-  },
-  setup() {
-    return {}
+defineProps({
+  title: {
+    type: String as PropType<string>,
   },
 })
 </script>
