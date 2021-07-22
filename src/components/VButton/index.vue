@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent, PropType, ref } from 'vue'
+import { defineComponent, ref } from 'vue'
 
 type ButtonTypes = 'default' | 'success' | 'error' | 'warn'
 type ButtonSize = 'sm' | 'md' | 'lg'
@@ -80,7 +80,13 @@ export default defineComponent({
 <template>
   <button
     :class="[sizeStyle, typeStyle]"
-    class="shadow rounded hover:transition focus:ring focus:outline-none dark:bg-dark-800"
+    class="
+      shadow
+      rounded
+      hover:transition
+      focus:ring focus:outline-none
+      dark:bg-dark-800
+    "
   >
     <slot></slot>
   </button>

@@ -1,11 +1,7 @@
 <script lang="ts" setup>
-import { PropType, defineProps } from 'vue'
-
-defineProps({
-  title: {
-    type: String as PropType<string>,
-  },
-})
+defineProps<{
+  title: string
+}>()
 </script>
 
 <template>

@@ -3,8 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import VButton from './components/VButton/index.vue'
-// import './registerServiceWorker'
-import 'windi.css'
+import 'virtual:windi.css'
 
 createApp(App)
   .component('v-button', VButton)
