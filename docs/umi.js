@@ -31821,7 +31821,7 @@
         ],
       }),
       z = n(97175),
-      V = { basename: '/' };
+      V = { basename: '/front-end-laboratory/' };
     window.routerBase && (V.basename = window.routerBase);
     var B = { NODE_ENV: 'production' }.__IS_SERVER ? null : (0, z.lX)(V),
       q = function () {

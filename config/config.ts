@@ -2,12 +2,14 @@ import { defineConfig } from 'umi';
 import { routes } from './router';
 import { theme } from './theme';
 
+const __DEV__ = process.env.NODE_ENV === 'development';
+
 export default defineConfig({
   theme,
   routes,
   title: 'Lab',
-  publicPath:
-    process.env.NODE_ENV === 'production' ? '/front-end-laboratory/' : '/',
+  base: __DEV__ ? '/' : '/front-end-laboratory/',
+  publicPath: __DEV__ ? '/' : '/front-end-laboratory/',
   outputPath: 'docs',
   dynamicImport: {},
   fastRefresh: {},
