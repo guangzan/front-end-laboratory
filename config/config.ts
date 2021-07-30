@@ -6,6 +6,7 @@ export default defineConfig({
   theme,
   routes,
   title: 'Lab',
+  outputPath: 'docs',
   dynamicImport: {},
   fastRefresh: {},
   mfsu: {},
