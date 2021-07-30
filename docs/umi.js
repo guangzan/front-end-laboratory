@@ -30817,7 +30817,7 @@
       };
     })(),
     (function () {
-      n.p = '/';
+      n.p = './';
     })(),
     (function () {
       var e = function (e, t, n) {

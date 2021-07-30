@@ -6,6 +6,7 @@ export default defineConfig({
   theme,
   routes,
   title: 'Lab',
+  publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
   outputPath: 'docs',
   dynamicImport: {},
   fastRefresh: {},
