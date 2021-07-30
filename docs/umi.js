@@ -30817,7 +30817,7 @@
       };
     })(),
     (function () {
-      n.p = '/docs/';
+      n.p = '/front-end-laboratory/';
     })(),
     (function () {
       var e = function (e, t, n) {
