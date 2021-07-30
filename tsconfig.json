@@ -1,47 +1,37 @@
 {
   "compilerOptions": {
-    "strict": true,
-    "strictNullChecks": true,
-    "target": "ES6",
+    "target": "esnext",
     "module": "esnext",
-    "moduleResolution": "Node",
-    "declaration": true,
-    "forceConsistentCasingInFileNames": true,
-    "composite": true,
-    "allowSyntheticDefaultImports": true,
-    "strictFunctionTypes": false,
-    "jsx": "preserve",
-    "baseUrl": ".",
-    "allowJs": true,
-    "sourceMap": true,
-    "esModuleInterop": true,
+    "moduleResolution": "node",
     "resolveJsonModule": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "experimentalDecorators": true,
-    "lib": ["ESNext", "DOM"],
-    "typeRoots": ["./node_modules/@types/", "src/types"],
-    "types": [
-      "vite/client",
-      "vite-plugin-vue-layouts/client",
-      "@intlify/vite-plugin-vue-i18n/client"
-    ],
-    "noImplicitAny": false,
-    "skipLibCheck": true,
+    "importHelpers": true,
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "baseUrl": "./",
+    "strict": true,
     "paths": {
-      "/@/*": ["src/*"],
-      "/#/*": ["src/types/*"]
-    }
+      "@/*": ["src/*"],
+      "@@/*": ["src/.umi/*"]
+    },
+    "allowSyntheticDefaultImports": true
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "src/types/**/*.d.ts",
-    "src/types/**/*.ts",
-    "mock/**/*.ts",
-    "vite.config.ts"
+    "mock/**/*",
+    "src/**/*",
+    "config/**/*",
+    ".umirc.ts",
+    "typings.d.ts"
   ],
-  "exclude": ["node_modules", "dist"]
+  "exclude": [
+    "node_modules",
+    "lib",
+    "es",
+    "dist",
+    "typings",
+    "**/__test__",
+    "test",
+    "docs",
+    "tests"
+  ]
 }
