@@ -33,6 +33,12 @@ const toolList: Array<CardItem> = [
     path: '/tools/imgToBase64',
     icon: PictureOutlined,
   },
+  {
+    title: '头像生成',
+    desc: '生成不同风格的头像',
+    path: '/tools/avatarBuilder',
+    icon: PictureOutlined,
+  },
 ];
 
 type CardTitleProps = {
