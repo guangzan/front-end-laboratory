@@ -30890,7 +30890,7 @@
       };
     })(),
     (function () {
-      n.p = '/front-end-laboratory/';
+      n.p = '/';
     })(),
     (function () {
       var e = function (e, t, n) {
@@ -31895,7 +31895,7 @@
         ],
       }),
       z = n(97175),
-      V = { basename: '/front-end-laboratory/' };
+      V = { basename: '/' };
     window.routerBase && (V.basename = window.routerBase);
     var B = { NODE_ENV: 'production' }.__IS_SERVER ? null : (0, z.lX)(V),
       q = function () {
