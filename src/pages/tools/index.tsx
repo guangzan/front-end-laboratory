@@ -39,6 +39,12 @@ const toolList: Array<CardItem> = [
     path: '/tools/avatarBuilder',
     icon: PictureOutlined,
   },
+  {
+    title: '二维码生成',
+    desc: '二维码生成',
+    path: '/tools/qrcode-maker',
+    icon: PictureOutlined,
+  },
 ];
 
 type CardTitleProps = {

@@ -1,4 +1,5 @@
 import { IRoute } from 'umi';
+import { tools } from './tools';
 
 export const routes: Array<IRoute> = [
   {
@@ -9,26 +10,6 @@ export const routes: Array<IRoute> = [
         path: '/',
         component: '@/pages/home/index',
         title: 'Lab · 首页',
-      },
-      {
-        path: '/tools',
-        component: '@/pages/tools/index',
-        title: 'Lab · 在线工具',
-      },
-      {
-        path: '/tools/colorPicker',
-        component: '@/pages/tools/colorPicker/index',
-        title: 'Lab · 调色板',
-      },
-      {
-        path: '/tools/imgToBase64',
-        component: '@/pages/tools/imgToBase64/index',
-        title: 'Lab · 调色板',
-      },
-      {
-        path: '/tools/formater',
-        component: '@/pages/tools/formater/index',
-        title: 'Lab · 代码格式化',
       },
       {
         path: '/posts',
@@ -45,6 +26,7 @@ export const routes: Array<IRoute> = [
         component: '@/pages/software/index',
         title: 'Lab · 软件',
       },
+      ...tools,
     ],
   },
   { component: '@/pages/404', title: 'GZ · 404 ' },
