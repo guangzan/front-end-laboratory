@@ -11,7 +11,9 @@ export default defineConfig({
   // base: __DEV__ ? '/' : '/front-end-laboratory/',
   // publicPath: __DEV__ ? '/' : '/front-end-laboratory/',
   outputPath: 'dist',
-  dynamicImport: {},
+  dynamicImport: {
+    loading: '@/components/Loading',
+  },
   fastRefresh: {},
   mfsu: {},
   nodeModulesTransform: {

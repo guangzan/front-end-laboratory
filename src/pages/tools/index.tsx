@@ -5,45 +5,63 @@ import {
   PictureOutlined,
   BgColorsOutlined,
   CodeOutlined,
+  ProfileOutlined,
+  QrcodeOutlined,
 } from '@ant-design/icons';
 
-interface CardItem {
+interface Tool {
   title: string;
   desc: string;
   path: string;
   icon: any;
+  type: 'native' | 'iframe';
 }
 
-const toolList: Array<CardItem> = [
+interface ToolListItem {
+  classification: string;
+  tools: Tool[];
+}
+
+const toolDataList: ToolListItem[] = [
   {
-    title: '调色板',
-    desc: '中性色板',
-    path: '/tools/colorPicker',
-    icon: BgColorsOutlined,
-  },
-  {
-    title: '代码格式化',
-    desc: 'CSS、JavaScript 代码格式化',
-    path: '/tools/formater',
-    icon: CodeOutlined,
-  },
-  {
-    title: '图片转 Base64',
-    desc: '将图片转换为 Base64 编码',
-    path: '/tools/imgToBase64',
-    icon: PictureOutlined,
-  },
-  {
-    title: '头像生成',
-    desc: '生成不同风格的头像',
-    path: '/tools/avatarBuilder',
-    icon: PictureOutlined,
-  },
-  {
-    title: '二维码生成',
-    desc: '二维码生成',
-    path: '/tools/qrcode-maker',
-    icon: PictureOutlined,
+    classification: '开发工具',
+    tools: [
+      {
+        title: '调色板',
+        desc: '中性色板',
+        path: '/tools/colorPicker',
+        icon: BgColorsOutlined,
+        type: 'native',
+      },
+      {
+        title: '代码格式化',
+        desc: 'CSS、JavaScript 代码格式化',
+        path: '/tools/formater',
+        icon: CodeOutlined,
+        type: 'native',
+      },
+      {
+        title: '图片转 Base64',
+        desc: '将图片转换为 Base64 编码',
+        path: '/tools/imgToBase64',
+        icon: PictureOutlined,
+        type: 'native',
+      },
+      {
+        title: '头像生成',
+        desc: '生成不同风格的头像',
+        path: '/tools/avatarBuilder',
+        icon: ProfileOutlined,
+        type: 'native',
+      },
+      {
+        title: '二维码生成',
+        desc: '把链接或一段文本制作成二维码',
+        path: '/tools/qrcode-maker',
+        icon: QrcodeOutlined,
+        type: 'native',
+      },
+    ],
   },
 ];
 
@@ -59,7 +77,7 @@ const CardTitle: React.FC<CardTitleProps> = (props) => (
   </div>
 );
 
-const ToolCard: React.FC<{ toolData: CardItem }> = ({ toolData }) => (
+const ToolCard: React.FC<{ toolData: Tool }> = ({ toolData }) => (
   <Link to={toolData.path}>
     <Card
       title={<CardTitle title={toolData.title} children={<toolData.icon />} />}
@@ -73,13 +91,18 @@ const ToolCard: React.FC<{ toolData: CardItem }> = ({ toolData }) => (
 const Index: React.FC = () => {
   return (
     <>
-      <Row gutter={[16, 16]}>
-        {toolList.map((item) => (
-          <Col xs={24} sm={12} md={8} lg={6} key={item.title}>
-            <ToolCard toolData={item}></ToolCard>
-          </Col>
-        ))}
-      </Row>
+      {toolDataList.map((toolData) => (
+        <div>
+          <h1>{toolData.classification}</h1>
+          <Row gutter={[16, 16]}>
+            {toolData.tools.map((tool) => (
+              <Col xs={24} sm={12} md={8} lg={6} key={tool.title}>
+                <ToolCard toolData={tool}></ToolCard>
+              </Col>
+            ))}
+          </Row>
+        </div>
+      ))}
     </>
   );
 };
