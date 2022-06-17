@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useCopyToClipboard } from 'react-use';
 import CleanCSS from 'clean-css';
 import type { Output } from 'clean-css';

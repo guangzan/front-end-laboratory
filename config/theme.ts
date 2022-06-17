@@ -1,3 +1,1 @@
-export const theme = {
-  'primary-color': 'blue',
-};
+export const theme = {};

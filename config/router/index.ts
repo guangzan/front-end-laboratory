@@ -1,10 +1,10 @@
-import { IRoute } from 'umi';
+import type { IRoute } from 'umi';
 import { tools } from './tools';
 
 export const routes: Array<IRoute> = [
   {
     path: '/',
-    component: '@/layouts/index/index',
+    component: '@/layouts/index',
     routes: [
       {
         path: '/',

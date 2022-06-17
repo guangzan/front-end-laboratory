@@ -21,7 +21,7 @@
        <img src="https://open.vscode.dev/badges/open-in-vscode.svg" alt="" />
     </a>
     <br />
-    This is not a fun <em>website</em>. I will add whatever I need.
+    I will add <em>whatever</em> I need.
     <br />
   </sup>
 </div>
