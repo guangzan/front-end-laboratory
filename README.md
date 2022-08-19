@@ -1,27 +1,3 @@
-<div align="center">
-  <h1>
-    <br/>
-    <br/>
-    🧪
-    <br />
-    <br />
-    FE Laboratory
-    <br />
-    <br />
-    <br />
-    <br />
-  </h1>
-  <sup>
-    <br />
-    <br />
-    <a href="https://guangzan.github.io/front-end-laboratory/">
-       <img src="https://img.shields.io/badge/site-🚀-yellow.svg" alt="" />
-    </a>
-    <a href="https://open.vscode.dev/guangzan/front-end-laboratory">
-       <img src="https://open.vscode.dev/badges/open-in-vscode.svg" alt="" />
-    </a>
-    <br />
-    I will add <em>whatever</em> I need.
-    <br />
-  </sup>
-</div>
+# README
+
+`@umijs/max` 模板项目，更多功能参考 [Umi Max 简介](https://next.umijs.org/zh-CN/docs/max/introduce)
