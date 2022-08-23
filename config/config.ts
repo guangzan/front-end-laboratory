@@ -1,13 +1,15 @@
 import { defineConfig } from '@umijs/max';
 
 export default defineConfig({
-  antd: {},
+  antd: {
+    dark: true,
+  },
   access: {},
   model: {},
   initialState: {},
   request: {},
   layout: {
-    title: '@umijs/max',
+    title: 'FE Labs',
   },
   routes: [
     {
@@ -18,6 +20,11 @@ export default defineConfig({
       name: '首页',
       path: '/home',
       component: './Home',
+    },
+    {
+      name: '工具',
+      path: '/tools',
+      component: './tools',
     },
     {
       name: '权限演示',
@@ -31,5 +38,8 @@ export default defineConfig({
     },
   ],
   npmClient: 'pnpm',
+  mfsu: {
+    esbuild: true,
+  }
 });
 
