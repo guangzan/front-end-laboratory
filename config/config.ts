@@ -24,22 +24,22 @@ export default defineConfig({
     {
       name: "首页",
       path: "/home",
-      component: "./Home",
+      component: "@/pages/Home",
     },
     {
       name: "工具",
       path: "/tools",
-      component: "./tools",
+      component: "@/pages/tools",
     },
     {
       name: "权限演示",
       path: "/access",
-      component: "./Access",
+      component: "@/pages/Access",
     },
     {
       name: " CRUD 示例",
       path: "/table",
-      component: "./Table",
+      component: "@/pages/Table",
     },
   ],
 
